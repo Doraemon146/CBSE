@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#0b0714">
+  <title>Our Little Space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+  <main class="chat-page" id="chat-page" style="display:none">
+    <header class="chat-header">
+      <div class="avatar" id="partner-avatar"></div>
+      <div class="header-info"><div class="header-name" id="partner-name"></div><div class="header-status" id="partner-status">offline</div></div>
+      <button class="icon-btn" id="logout-btn" aria-label="Leave">↪</button>
+    </header>
+
+    <section class="spotify-card">
+      <div class="spotify-art" id="spotify-art">♫</div>
+      <div class="spotify-info">
+        <div class="spotify-label">🎵 SHARED SPOTIFY</div>
+        <div class="spotify-title" id="spotify-title">No song selected</div>
+        <div class="spotify-sub" id="spotify-sub">Choose one track for both of you</div>
+      </div>
+      <button class="small-btn" id="spotify-btn">Choose</button>
+    </section>
+
+    <div class="spotify-picker" id="spotify-picker" hidden>
+      <div class="spotify-picker-head">
+        <div>
+          <strong>🎵 Pick a song</strong>
+          <span>Choose one for both of you</span>
+        </div>
+        <button id="close-spotify-picker" aria-label="Close">×</button>
+      </div>
+      <input id="spotify-search" class="spotify-search" type="search" placeholder="Search songs..." autocomplete="off">
+      <div id="spotify-results" class="spotify-results"></div>
+    </div>
+
+    <div class="messages-container" id="messages" aria-live="polite"></div>
+
+    <div class="reply-bar" id="reply-bar" hidden>
+      <div><strong>Replying to</strong><span id="reply-preview"></span></div>
+      <button id="cancel-reply" aria-label="Cancel reply">×</button>
+    </div>
+
+    <div class="media-panel" id="media-panel" hidden>
+      <div class="panel-head"><strong id="panel-title">Emoji</strong><button id="close-panel">×</button></div>
+      <div id="media-content"></div>
+    </div>
+
+    <footer class="input-area">
+      <div class="toolbar">
+        <button class="tool-btn" id="emoji-btn" title="Emoji">😊</button>
+        <button class="tool-btn" id="gif-btn" title="GIF">GIF</button>
+        <button class="tool-btn" id="sticker-btn" title="Stickers">✨</button>
+        <label class="tool-btn file-btn" title="Send GIF/image URL">🔗<input id="media-url" type="url" placeholder="GIF URL" autocomplete="off"></label>
+      </div>
+      <div class="input-wrapper">
+        <input type="text" id="message-input" class="message-input" placeholder="Type something sweet..." maxlength="5000" autocomplete="off">
+        <button class="send-btn" id="send-btn" aria-label="Send">➤</button>
+      </div>
+    </footer>
+  </main>
+  <div id="toast-root"></div>
+  <script type="module" src="chat.js"></script>
+</body>
+</html>
